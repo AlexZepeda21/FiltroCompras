@@ -1,0 +1,50 @@
+<h2 class="titulo">Listado de Compras</h2>
+
+<div class="filtros-container">
+  <div class="filtro-card">
+    <label>Comercio ID</label>
+    <input type="number" [(ngModel)]="idComercio">
+  </div>
+
+  <div class="filtro-card">
+    <label>Fecha</label>
+    <input type="date" [(ngModel)]="fecha">
+  </div>
+
+  <div class="filtro-card">
+    <label>Medio de Pago</label>
+    <input type="text" [(ngModel)]="medioPago">
+  </div>
+
+  <div class="botones-container">
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+    <button class="btn btn-secondary" (click)="cargarCompras()">Reset</button>
+  </div>
+</div>
+
+<div class="tabla-container">
+  <table class="tabla-compras">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Lugar</th>
+        <th>Monto</th>
+        <th>Cliente</th>
+        <th>Comercio</th>
+        <th>Medio de Pago</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compra of compras">
+        <td>{{ compra.idCompra }}</td>
+        <td>{{ compra.fecha }}</td>
+        <td>{{ compra.lugar }}</td>
+        <td>{{ compra.montoTotal }}</td>
+        <td>{{ compra.cliente }}</td>
+        <td>{{ compra.comercio }}</td>
+        <td>{{ compra.medioPago }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
